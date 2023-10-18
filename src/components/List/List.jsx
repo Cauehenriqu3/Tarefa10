@@ -1,20 +1,25 @@
-import ListItem from '../ListItem';
-import './List.css';
+import { useCallback, useMemo } from 'react';
+import Item from '../Item';
 
-function List({ items = [] }) {
-    const map = items.map((item) => {
-        return (
-            <ListItem key={item.id} item={item} />
-        );
-    });
+const List = ({ items = [], onItemClick }) => {
+  const handleItemClick = useCallback((index) => {
+    onItemClick(index);
+  });
 
+  const map = useMemo(() => items.map((item, index) => {
     return (
-        <div className='list-wrapper'>
-            <ul className='list'>
-                {map}
-            </ul>
-        </div>
+      <Item key={index} item={item} onItemClick={() => handleItemClick(index)} index={index} />
     );
-}
+  }), [items, handleItemClick]);
+
+  return (
+    <div>
+      <h2>Lista de Usuários</h2>
+      <ul>
+        {map}
+      </ul>
+    </div>
+  );
+};
 
 export default List;

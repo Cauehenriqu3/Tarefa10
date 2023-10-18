@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Prática: Lista de Pokémons
+
+Esta prática exemplifica como obter dados de uma API e listá-los no front-end de uma aplicação.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
